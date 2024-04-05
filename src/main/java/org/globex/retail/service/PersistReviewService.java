@@ -25,6 +25,8 @@ public class PersistReviewService {
         } else {
             LOGGER.info("User '" + productReviewDto.getUser().getName() + "' submitted an abusive review which will not be persisted. The review text is '" 
                             + productReviewDto.getReviewText() + "'");   
+            productReviewDto.setReviewText("We're sorry but your review did not conform to our content policies and has been removed. Please contact support team for any queries. ~ Team Globex");
+            ProductReviewMapper.toEntity(productReviewDto).persist();           
             
         }
 
